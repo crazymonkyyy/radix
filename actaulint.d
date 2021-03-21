@@ -21,7 +21,7 @@ struct radixint{
   auto opRadix(int N:3)(){
     return lyingint((((i>>24)&255)+128)&255);
   }
-}
+}/*
 import std;
 unittest{
   import radix;
@@ -35,4 +35,15 @@ unittest{
     e.opRadix!3.writeln;
   }
   assert(foo[].isSorted);
+}*/
+unittest{
+	import radixksmallest; import std;
+	radixint[] foo = new radixint[](100000000);
+	foreach(i;0..100000000){
+		foo[i]=radixint(uniform(int.min,int.max));
+	}
+	enum k=1000007;
+	//auto o=ksmallest(foo[],k);
+	auto o=topN(foo[],k);
+	assert(o.length==k,o.length.to!string);
 }

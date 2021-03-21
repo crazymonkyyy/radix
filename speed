@@ -1,0 +1,6 @@
+ldc2 -O3 -release -i speedtest1.d
+ldc2 -O3 -release -i speedtest2.d
+time ./speedtest1
+time ./speedtest2
+time ./speedtest2
+time ./speedtest1
